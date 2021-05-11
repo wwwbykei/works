@@ -1,0 +1,39 @@
+// ---
+// mediaQueries
+// ---
+
+@mixin mobile {
+  @media screen and (max-width: #{$tablet - 1px}) {
+    @content;
+  }
+}
+
+@mixin fromtablet {
+  @media screen and (min-width: #{$tablet}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: #{$tablet}) and (max-width: #{$laptop - 1px}) {
+    @content;
+  }
+}
+
+@mixin fromlaptop {
+  @media screen and (min-width: #{$laptop}) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media screen and (min-width: #{$laptop}) and (max-width: #{$desktop - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: #{$desktop}) {
+    @content;
+  }
+}

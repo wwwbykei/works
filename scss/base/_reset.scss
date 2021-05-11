@@ -1,0 +1,293 @@
+// ---
+// reset
+// ---
+
+*{-webkit-overflow-scrolling:touch}
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html,body{min-height:100%}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:none}
+body{background-color:$bg-color-base;font-size:$font-size-base;font-family:$font-family-base;font-weight:$fw-r;color:$font-color-base}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,fieldset,form,legend,p,blockquote,th,td,label,input,select,textarea,button,a{margin:0;padding:0}
+a,h1,h2,h2,h3,h4,h5,h6,label,input,textarea,select,button,small,p,span,dl,ul,ol,th,td,address,em,i,strong{font-size:inherit;font-family:inherit;font-weight:inherit;line-height:1.5;color:inherit}
+dl,ol,ul,li{list-style:none}
+h1,h2,h2,h3,h4,h5,h6,address,em,i,strong,th{font-style:normal}
+a{text-decoration:none}
+img{border:0}
+fieldset{border:none}
+select{vertical-align:middle}
+a:focus,button:focus,textarea:focus,input:focus,select:focus,li:focus{outline:none}
+a,button,select{cursor:pointer}
+input[type=button],input[type=submit],select{border:none;background:none}
+input[type=text],input[type=password],input[type=search],input[type=number],input[type=email],input[type=tel],input[type=file],input[type=date],select,textarea{-webkit-appearance:none;border-radius:0;-webkit-border-radius:0}
+select{-webkit-appearance:none;-moz-appearance:none;appearance:none}
+select::-ms-expand{display:none}
+button{border:none;background:transparent}
+table{border-spacing:0}
+// input::-webkit-calendar-picker-indicator{opacity:0}
+
+// *,
+// *::before,
+// *::after {
+//   -webkit-box-sizing: border-box;
+//   box-sizing: border-box;
+// }
+
+// html,
+// body,
+// div,
+// span,
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6,
+// p,
+// em,
+// img,
+// small article,
+// aside,
+// footer,
+// header,
+// nav,
+// address,
+// section,
+// main,
+// time,
+// ol,
+// ul,
+// li,
+// hr,
+// strong,
+// figure,
+// tr,
+// th,
+// td,
+// dl,
+// dt,
+// dd,
+// fieldset {
+//   margin: 0;
+//   padding: 0;
+//   border: 0;
+//   vertical-align: baseline;
+//   -webkit-text-size-adjust: none;
+//   font-style: normal;
+//   font-weight: normal;
+// }
+
+// html {
+//   position: relative;
+//   width: 100%;
+//   min-width: 100%;
+//   min-height: 100%;
+//   height: 100%;
+//   -webkit-text-size-adjust: 100%;
+//   -ms-text-size-adjust: 100%;
+//   -ms-overflow-style: scrollbar;
+//   -webkit-tap-highlight-color: transparent;
+//   scroll-behavior: smooth;
+// }
+
+// body {
+//   position: relative;
+//   min-height: 100%;
+//   height: 100%;
+//   overflow-y: auto;
+//   background-color: $bg-color-base;
+//   text-align: left;
+//   font-family: $font-family-base;
+//   font-weight: $fw-r;
+//   line-height: 1.5;
+//   -webkit-font-smoothing: antialiased;
+//   color: $font-color-base;
+// }
+
+// a,h1,h2,h2,h3,h4,h5,h6,label,input,textarea,select,button,small,p,span,dl,ul,ol,th,td{
+//   color:inherit;
+//   font-size:inherit;
+//   font-family:inherit;
+// }
+// a:focus,a:hover,a:active,button:focus,textarea:focus,input:focus,select:focus,li:focus{
+//   outline:none
+// }
+
+// [tabindex="-1"]:focus {
+//   outline: 0 !important;
+// }
+
+// ul,
+// ol,
+// li,
+// dl {
+//   list-style: none;
+// }
+
+// a {
+//   text-decoration: none;
+//   &:focus {
+//     opacity: 1;
+//   }
+// }
+
+// a,
+// button {
+//   @include tap-highlight;
+// }
+
+// button:disabled,
+// button[disabled] {
+//   -webkit-tap-highlight-color: transparent;
+//   color: inherit;
+// }
+
+// button {
+//   display: block;
+//   margin: 0;
+//   padding: 0;
+//   border: 0;
+//   -webkit-appearance: none;
+//   -webkit-border-radius: 0;
+//   background: none;
+//   cursor: pointer;
+// }
+
+// i {
+//   font-style: normal;
+// }
+
+// a,
+// area,
+// button,
+// [role="button"],
+// input:not([type="range"]),
+// label,
+// select,
+// summary,
+// textarea {
+//   -ms-touch-action: manipulation;
+//   touch-action: manipulation;
+// }
+
+// input {
+//   @include ellipsis;
+//   @include font-main;
+//   width: 100%;
+//   margin: 0;
+//   padding: 0;
+//   box-sizing: border-box;
+//   vertical-align: top;
+//   border-radius: 0;
+//   -webkit-border-radius: 0px;
+//   -webkit-appearance: none;
+//   -moz-appearance: none;
+//   appearance: none;
+//   -webkit-border-radius: 0;
+//   background-color: transparent;
+//   border: 1px solid transparent;
+
+//   &:focus {
+//     outline: 0;
+//   }
+
+//   &:-webkit-autofill,
+//   &:-webkit-autofill:hover,
+//   &:-webkit-autofill:focus,
+//   &:-webkit-autofill:active,
+//   &:-internal-autofill-selected {
+//     // background-color: #fff;
+//     transition: background-color 5000s 0s;
+//     -webkit-text-fill-color: #101010 !important;
+//     // -webkit-transition: background-color 9999s ease-out;
+//     // -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+//   }
+// }
+
+// input[type=number]::-webkit-outer-spin-button,
+// input[type=number]::-webkit-inner-spin-button {
+//   -webkit-appearance: none;
+//   margin: 0;
+// }
+
+// input[type=number] {
+//   -moz-appearance: textfield;
+// }
+
+// textarea {
+//   @include font-main;
+//   width: 100%;
+//   margin: 0;
+//   padding: 0;
+//   box-sizing: border-box;
+
+//   &:focus {
+//     outline: 0;
+//   }
+// }
+
+// //비밀번호인 경우
+// input[type="password"] {
+//   letter-spacing: 4px;
+//   // font-size: 150%;
+
+//   @include placeholder {
+//     @include font-main;
+//   }
+// }
+
+// //ios용
+// input[type=text],input[type=password],input[type=search],input[type=number],input[type=email],input[type=tel],input[type=file],input[type=date],
+// select,
+// textarea{
+//   -webkit-appearance: none;
+//   -moz-appearance: none;
+//   appearance: none;
+//   border-radius: 0;
+//   -webkit-border-radius: 0
+// }
+// select{
+//   -moz-appearance: none;
+//   &::-ms-expand {
+//     display:none;
+//   }
+// }
+
+// input:disabled,
+// input[readonly] {
+//   //iOS에서 disabled처리한 input에 기본적으로 적용되는 스타일 제거
+//   opacity: 1;
+//   -webkit-text-fill-color: inherit;
+// }
+
+// input[readonly] {
+//   color: $c-gray-normal;
+//   background-color: #efefef;
+//   border-color: #efefef;
+
+//   &:hover,
+//   &:focus {
+//     border-color: #efefef;
+//   }
+// }
+
+// table {
+//   border-collapse: collapse;
+//   border-spacing: 0
+// }
+
+// caption {
+//   padding-top: 0.75rem;
+//   padding-bottom: 0.75rem;
+//   color: #868e96;
+//   text-align: left;
+//   caption-side: bottom;
+// }
+
+// th {
+//   text-align: inherit;
+// }

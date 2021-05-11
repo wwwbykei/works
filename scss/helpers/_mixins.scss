@@ -1,0 +1,513 @@
+// ---
+// mixin
+// ---
+
+
+
+// Shortcut
+@mixin clear($property:both){clear:$property}
+@mixin block{display:block}
+@mixin in-block{display:inline-block;*display:inline;zoom:1}
+@mixin inline{display:inline}
+@mixin hidden{display:none}
+@mixin overh{overflow:hidden}
+@mixin fl{float:left}
+@mixin fr{float:right}
+@mixin fn{float:none}
+@mixin rel{position:relative}
+@mixin abs{position:absolute}
+@mixin static{position:static}
+@mixin fixed{position:fixed}
+
+@mixin m($margin){margin:$margin}
+@mixin mtb($top,$bottom){margin-top:$top;margin-bottom:$bottom}
+@mixin mrl($right,$left){margin-right:$right;margin-left:$left}
+@mixin mt($margin){margin-top:$margin}
+@mixin mr($margin){margin-right:$margin}
+@mixin mb($margin){margin-bottom:$margin}
+@mixin ml($margin){margin-left:$margin}
+@mixin p($padding){padding:$padding}
+@mixin ptb($top,$bottom){padding-top:$top;padding-bottom:$bottom}
+@mixin prl($right,$left){padding-right:$right;padding-left:$left}
+@mixin pt($padding){padding-top:$padding}
+@mixin pr($padding){padding-right:$padding}
+@mixin pb($padding){padding-bottom:$padding}
+@mixin pl($padding){padding-left:$padding}
+
+@mixin bnone{border:none}
+@mixin b($color:$border-color-base,$width:1px,$style:solid){border:$width $style $color}
+@mixin btb($top:$border-color-base,$bottom:$border-color-base,$width:1px){border-top:$width solid $top;border-bottom:$width solid $bottom}
+@mixin brl($color:$border-color-base,$width:1px){border-right:$width solid $color;border-left:$width solid $color}
+@mixin bt($color:$border-color-base,$width:1px){border-top:$width solid $color}
+@mixin br($color:$border-color-base,$width:1px){border-right:$width solid $color}
+@mixin bb($color:$border-color-base,$width:1px){border-bottom:$width solid $color}
+@mixin bl($color:$border-color-base,$width:1px){border-left:$width solid $color}
+@mixin blnone{border-left:none}
+@mixin radius($property:$border-radius-base){border-radius:$property}
+@mixin radius-oval($property:50%){border-radius:$property}
+@mixin radius-top($radius:$border-radius-base){
+  border-top-right-radius: $radius;
+   border-top-left-radius: $radius;
+}
+@mixin radius-right($radius:$border-radius-base){
+  border-bottom-right-radius: $radius;
+     border-top-right-radius: $radius;
+}
+@mixin radius-bottom($radius:$border-radius-base){
+  border-bottom-right-radius: $radius;
+   border-bottom-left-radius: $radius;
+}
+@mixin radius-bottom-right($radius:$border-radius-base){
+  border-bottom-right-radius: $radius;
+}
+@mixin radius-bottom-left($radius:$border-radius-base){
+  border-bottom-left-radius: $radius;
+}
+@mixin radius-left($radius:$border-radius-base){
+  border-bottom-left-radius: $radius;
+     border-top-left-radius: $radius;
+}
+@mixin radius-top-right($radius:$border-radius-base){
+  border-top-right-radius: $radius;
+}
+@mixin radius-top-left($radius:$border-radius-base){
+  border-top-left-radius: $radius;
+}
+
+@mixin bgnone{background:none}
+@mixin bgcnone{background-color:transparent}
+@mixin bg($color){background-color:$color}
+@mixin bgimg($img,$x:50%,$y:50%,$repeat:no-repeat){background-image:url("../images/${img}");background-position:$x $y;background-repeat:$repeat}
+@mixin bgs($size:contain){background-size:$size}
+@mixin bgpos($x,$y){background-position:$x $y !important}
+@mixin bgr($property:no-repeat){background-repeat:$property}
+@mixin bglayer{content:'';@include block;@include abs;top:0;right:0;bottom:0;left:0}
+
+@mixin tl{text-align:left}
+@mixin tr{text-align:right}
+@mixin tc{text-align:center}
+@mixin text-wrap($property:nowrap){white-space:$property}
+@mixin nowrap{white-space:nowrap}
+@mixin text-overflow($property:ellipsis){text-overflow:$property}
+@mixin tu{text-decoration:underline}
+@mixin text-cancel{text-decoration:line-through}
+@mixin lh($int:1.5){line-height:$int}
+// @mixin text-hidden{color:transparent;text-shadow:none;text-indent:-9999px}
+@mixin indent($int:0){text-indent:$int}
+@mixin break($property:break-all){word-break:$property}
+@mixin upper{text-transform:uppercase}
+@mixin text-space($property){letter-spacing:$property}
+@mixin text-ellipsis{@include overh;@include text-overflow;@include text-wrap}
+@mixin text-ellipsis-2lines{@include overh;@include text-overflow;-webkit-line-clamp:2;white-space:normal;display:-webkit-box;-webkit-box-orient: vertical}
+@mixin text-ellipsis-3lines{@include overh;@include text-overflow;-webkit-line-clamp:3;white-space:normal;display:-webkit-box;-webkit-box-orient: vertical}
+@mixin fs($size){font-size:#{"${size}px"}}
+@mixin fw($weight){font-weight:$weight}
+@mixin text-primary{@include c($color-primary)}
+@mixin text-primary-dark{@include c($color-primary-dark)}
+@mixin fw-thin{@include fw(100)}
+@mixin fw-light{@include fw(200)}
+@mixin fw-regular{@include fw(400)}
+@mixin fw-medium{@include fw(500)}
+@mixin fw-semibold{@include fw(600)}
+@mixin fw-bold{@include fw(700)}
+@mixin dotum{font-family:'돋움',dotum}
+@mixin montserrat{font-family:'Montserrat'}
+
+/* etc */
+@mixin pointer($property:pointer){cursor:$property}
+@mixin valign($property:middle){vertical-align:$property}
+// @mixin valign{@include valign();}
+@mixin z($property){z-index:$property}
+@mixin l($color:#f00){outline:1px solid $color}
+@mixin opacity($opacity:0.5){opacity:$opacity;$opacity-ie:($opacity * 100);filter:#{"alpha(opacity=${opacity-ie})"}}
+
+// 효두 전용 믹스인
+// @mixin checkIcon($iconColor:"101010", $borderColor: #101010) {
+//   background-image: icon(check, $iconColor);
+//   width: 17px;
+//   height: 17px;
+//   background-size: 9px;
+//   background-position: 49.5% 50%;
+//   background-repeat: no-repeat;
+//   border: 1px solid $borderColor;
+//   border-radius: 50%;
+
+//   //laptop
+//   @include res--laptop {
+//     width: 18px;
+//     height: 18px;
+//     background-size: 10px;
+//   }
+// }
+
+@mixin hide-tablet {
+  display: block;
+  @include fromtablet {
+    display: none;
+  }
+}
+
+@mixin show-tablet {
+  display: none;
+  @include fromtablet {
+    display: block;
+  }
+}
+
+@mixin listBullet($color: #4b4b4b) {
+  position: absolute;
+  display: block;
+  top: 10px;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  margin-right: 6px;
+  transform: translateY(-50%);
+  background-color: $color;
+  content: '';
+
+  //laptop
+  @include res--laptop {
+    top: 11px;
+  }
+}
+
+// 폰트
+// @mixin montserrat{
+//   font-family: 'Montserrat'; 
+// }
+
+// 글자 줄임 표시
+@mixin ellipsis($lines: 1) {
+  @if ($lines==1) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  @else {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+  }
+}
+
+//웹키트 탭 하이라이트 컬러
+@mixin tap-highlight {
+  -webkit-tap-highlight-color: rgba(238, 186, 186, 0.2);
+}
+
+// 글자 숨기기
+@mixin text-hidden {
+  overflow: hidden;
+  text-indent:-9999px;
+  color:transparent;
+  text-shadow:none;
+}
+
+// 백그라운드 이미지 삽입
+@mixin bgi($imageName, $type: "png") {
+  background-image: url(#{$path-image}#{$imageName}.#{$type});
+  background-repeat: no-repeat;
+}
+
+// 그라디언트 생성
+@mixin horizontal-gradient($from, $to, $stop: 100%) {
+  // fallback/image non-cover color
+  background-color: $from;
+  // Firefox 3.6+
+  background-image: -moz-linear-gradient(left, $from 0%, $to $stop);
+  // Safari 4+, Chrome 1+
+  background-image: -webkit-gradient(linear,
+      left top,
+      right top,
+      color-stop(0%, $from),
+      color-stop($stop, $to));
+  // Safari 5.1+, Chrome 10+
+  background-image: -webkit-linear-gradient(left, $from 0%, $to $stop);
+  // Opera 11.10+
+  background-image: -o-linear-gradient(left, $from 0%, $to $stop);
+  // IE10+
+  background: -ms-linear-gradient(left, $from 0%, $to $stop);
+  // Standard
+  background: linear-gradient(to right, $from 0%, $to $stop);
+  // IE6-9
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$from', endColorstr='$to', GradientType=1);
+}
+
+//keyframes
+@mixin keyframes($animation-name: animaton) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+//animation
+@mixin animation($duration, $animation, $delay: 0) {
+  -webkit-animation-delay: $delay;
+  -webkit-animation-duration: $duration;
+  -webkit-animation-name: $animation;
+  -webkit-animation-fill-mode: forwards;
+  /* this prevents the animation from restarting! */
+
+  -moz-animation-delay: $delay;
+  -moz-animation-duration: $duration;
+  -moz-animation-name: $animation;
+  -moz-animation-fill-mode: forwards;
+  /* this prevents the animation from restarting! */
+
+  -o-animation-delay: $delay;
+  -o-animation-duration: $duration;
+  -o-animation-name: $animation;
+  -o-animation-fill-mode: forwards;
+  /* this prevents the animation from restarting! */
+
+  animation-delay: $delay;
+  animation-duration: $duration;
+  animation-name: $animation;
+  animation-fill-mode: forwards;
+  /* this prevents the animation from restarting! */
+}
+
+// Flexbox display
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+// The 'flex' shorthand
+// - applies to: flex items
+// <positive-number>, initial, auto, or none
+@mixin flex($values) {
+  -webkit-box-flex: $values;
+  -moz-box-flex: $values;
+  -webkit-flex: $values;
+  -ms-flex: $values;
+  flex: $values;
+}
+
+// Flex Flow Direction
+// - applies to: flex containers
+// row | row-reverse | column | column-reverse
+@mixin flex-direction($direction) {
+  -webkit-flex-direction: $direction;
+  -moz-flex-direction: $direction;
+  -ms-flex-direction: $direction;
+  flex-direction: $direction;
+}
+
+// Flex Line Wrapping
+// - applies to: flex containers
+// nowrap | wrap | wrap-reverse
+@mixin flex-wrap($wrap) {
+  -webkit-flex-wrap: $wrap;
+  -moz-flex-wrap: $wrap;
+  -ms-flex-wrap: $wrap;
+  flex-wrap: $wrap;
+}
+
+// Flex Direction and Wrap
+// - applies to: flex containers
+// <flex-direction> || <flex-wrap>
+@mixin flex-flow($flow) {
+  -webkit-flex-flow: $flow;
+  -moz-flex-flow: $flow;
+  -ms-flex-flow: $flow;
+  flex-flow: $flow;
+}
+
+// Display Order
+// - applies to: flex items
+// <integer>
+@mixin order($val) {
+  -webkit-box-ordinal-group: $val;
+  -moz-box-ordinal-group: $val;
+  -ms-flex-order: $val;
+  -webkit-order: $val;
+  order: $val;
+}
+
+// Flex grow factor
+// - applies to: flex items
+// <number>
+@mixin flex-grow($grow) {
+  -webkit-flex-grow: $grow;
+  -moz-flex-grow: $grow;
+  -ms-flex-grow: $grow;
+  -ms-flex-positive: $grow;
+  flex-grow: $grow;
+}
+
+// Flex shrink
+// - applies to: flex item shrink factor
+// <number>
+@mixin flex-shrink($shrink) {
+  -webkit-flex-shrink: $shrink;
+  -moz-flex-shrink: $shrink;
+  -ms-flex-shrink: $shrink;
+  -ms-flex-negative: $shrink;
+  flex-shrink: $shrink;
+}
+
+// Flex basis
+// - the initial main size of the flex item
+// - applies to: flex itemsnitial main size of the flex item
+// <width>
+@mixin flex-basis($width) {
+  -webkit-flex-basis: $width;
+  -moz-flex-basis: $width;
+  -ms-flex-basis: $width;
+  flex-basis: $width;
+}
+
+// Axis Alignment
+// - applies to: flex containers
+// flex-start | flex-end | center | space-between | space-around
+@mixin justify-content($justify) {
+  -webkit-justify-content: $justify;
+  -moz-justify-content: $justify;
+  -ms-justify-content: $justify;
+  justify-content: $justify;
+  -ms-flex-pack: $justify;
+}
+
+// Packing Flex Lines
+// - applies to: multi-line flex containers
+// flex-start | flex-end | center | space-between | space-around | stretch
+@mixin align-content($align) {
+  -webkit-align-content: $align;
+  -moz-align-content: $align;
+  -ms-align-content: $align;
+  align-content: $align;
+}
+
+// Cross-axis Alignment
+// - applies to: flex containers
+// flex-start | flex-end | center | baseline | stretch
+@mixin align-items($align) {
+  -webkit-align-items: $align;
+  -moz-align-items: $align;
+  -ms-align-items: $align;
+  align-items: $align;
+}
+
+// Cross-axis Alignment
+// - applies to: flex items
+// auto | flex-start | flex-end | center | baseline | stretch
+@mixin align-self($align) {
+  -webkit-align-self: $align;
+  -moz-align-self: $align;
+  -ms-align-self: $align;
+  align-self: $align;
+}
+
+// pointer-events:auto 처리
+@mixin pointer-auto {
+  -moz-pointer-events: auto;
+  -webkit-pointer-events: auto;
+  -o-pointer-events: auto;
+  -ms-pointer-events: auto;
+  pointer-events: auto;
+}
+
+// pointer-events:none 처리
+@mixin pointer-none {
+  -moz-pointer-events: none;
+  -webkit-pointer-events: none;
+  -o-pointer-events: none;
+  -ms-pointer-events: none;
+  pointer-events: none;
+}
+
+@mixin select-none {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+// backface-visibility:hidden 처리
+@mixin backface-hide {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+// placeholder
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+
+  &:-moz-placeholder {
+    @content;
+  }
+
+  &::-moz-placeholder {
+    @content;
+  }
+
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+// Browser Prefixes
+@mixin transform($transforms) {
+  -webkit-transform: $transforms;
+  -moz-transform: $transforms;
+  -ms-transform: $transforms;
+  transform: $transforms;
+}
+
+// Rotate
+@mixin rotate($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+
+// Scale
+@mixin scale($scale) {
+  @include transform(scale($scale));
+}
+
+// Translate
+@mixin translate($x, $y) {
+  @include transform(translate($x, $y));
+}
+
+// Skew
+@mixin skew($x, $y) {
+  @include transform(skew(#{$x}deg, #{$y}deg));
+}
+
+// Transform Origin
+@mixin transform-origin($origin) {
+  -webkit-transform-origin: $origin;
+  -moz-transform-origin: $origin;
+  -ms-transform-origin: $origin;
+  transform-origin: $origin;
+}
+
+
+@mixin center() {
+  @include flexbox;
+  @include justify-content(center);
+  @include align-items(center);
+}
