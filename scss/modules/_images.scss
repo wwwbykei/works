@@ -1,0 +1,11 @@
+// ---
+// modules - images
+// ---
+
+img,video{max-width:100%;height:auto}
+.icon-arrow-upward{
+  @include bgi(icon/arrow-upward);
+}
+.icon-arrow-backward{
+  @include bgi(icon/arrow-backward);
+}

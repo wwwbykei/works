@@ -5,51 +5,38 @@
 #system-top{
   position:absolute;
   top:0;
-  left:0
+  left:0;
 }
-a[href="#system-top"]{
-  display:block;
-  width: 64px;
-  height: 64px;
-  margin:120px auto;
-  border-radius: 50%;
-  background: #111;
-  @include bgi(icon/arrow-upward);
-  background-size: 20px;
-  background-position: 50% 50%;
-  @include text-hidden;
-  @include desktop{
-    width: 120px;
-    height: 120px;
-    margin:240px auto;
-    background-size: 32px;
-  }
-}
+
 .wrap{
   position: relative;
   min-width: $min-width;
   max-width: $max-width;
-  margin: 0 20px;
+  margin-right:20px;
+  margin-left:20px;
   @include tablet {
-    margin: 0 40px;
+    margin-right:40px;
+    margin-left:40px;
   }
   @include laptop {
-    margin:0 10%;
+    margin-right:10%;
+    margin-left:10%;
   }
   @include desktop {
-    margin: 0 auto;
+    margin-right:auto;
+    margin-left:auto;;
   }
 }
 
-.blind {
-  // 👆 SEO용 텍스트 숨기기
-  position: absolute;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-}
+// .blind {
+//   // 👆 SEO용 텍스트 숨기기
+//   position: absolute;
+//   overflow: hidden;
+//   clip: rect(0 0 0 0);
+//   width: 1px;
+//   height: 1px;
+//   margin: -1px;
+// }
 
 // .logo {
 //   // 👆 범용 로고

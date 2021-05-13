@@ -2,15 +2,26 @@
 // page
 // ---
 
-.page-home{
+.page-title{
+	padding-top:96px;
+	padding-bottom:96px;
+	@include fromlaptop{
+		padding-top:200px;
+		padding-bottom:200px;
+	}
+	@include fw-thin;
+	p{
+		opacity:.4;
+	}
+}
+
+.page-list{
 	padding-top:40px;
-	background-color: #000;
 	color:#fff;
 	@include fromlaptop{
 		padding-top: 80px;
 	}
 	a[href^="mailto"]{
-		display:inline-block;
 		float:right;
 		text-align:right;
 		font-size:20px;
@@ -19,32 +30,12 @@
 			font-size: 40px;
 		}
 	}
-	.title{
+	.page-title{
 		clear:both;
 		float:left;
-		margin:96px 0;
+		font-size:32px;
 		@include fromlaptop{
-			margin:200px 0;
-		}
-		h1{
-			font-size:32px;
-			@include fromlaptop{
-				font-size:64px;
-			}
-			@include fw-thin;
-		}
-		p{
-			margin-top:32px;
-			font-size:16px;
-			@include fromlaptop{
-				margin-top:64px;
-				font-size:32px;
-			}
-			@include fw-regular;
-			@include fromtablet{
-				@include fw-thin
-			}
-			opacity:.4;
+			font-size:64px;
 		}
 	}
 	.list{
@@ -107,13 +98,13 @@
 					-webkit-transition: opacity 0.2s;
 					opacity: .9;
 				}
-				.outlinks{
+				div{
 					display:block;
 					z-index:10;
 				}
 			}
 		}
-		.outlinks {
+		div {
 			@include fromtablet{
 				display:none;
 			}
@@ -204,6 +195,29 @@
 	.list_item-dashboard{
 		@include bgi(dashboard);
 		background-size:61%;
+	}
+	.btn-icon{
+		margin-right:auto;
+		margin-left:auto;
+	}
+}
+.page-view{
+	.page-title{
+		background-color:#111;
+		font-size:20px;
+		@include fromlaptop{
+			font-size:40px;
+		}
+		text-align:center;
+	}
+	.list{
+		li{
+			margin-top:96px;
+			text-align:center;
+			@include fromlaptop{
+				margin-top:200px;
+			}
+		}
 	}
 }
 // .page-top {
